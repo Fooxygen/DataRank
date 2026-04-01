@@ -1,2 +1,4 @@
 # DataRank
-Programming Trainng Exercise, TUT, 2026
+Programming Training Exercise
+
+**Tianjin University of Technology | 2026**
