@@ -199,11 +199,10 @@ void Module_TableCreateTitle() {
 void Module_TableCreate() {
 
     // data
-    bool isReplace = false;   // 是否为覆盖
     int  idx = -1, judge_cnt = 0;
     struct Table table = {
         .header = { idx = -1, .player_cnt = 0, .judge_cnt = 0 },
-        .isFileLoad = true, .isFileWrite = false,        // 所有数据仅在内存中，故认为完整读取，尚未刷写
+        .isFileLoad = true, .isFileEqualMemory = false,        // 所有数据仅在内存中，故认为完整读取，尚未刷写
         .scores = NULL
     };
 
@@ -238,7 +237,6 @@ void Module_TableCreate() {
                 OUTPUT_YELLOW("表编号已存在！是否覆盖？[Y/N]：");
                 if (Cli_SelectReturn()) {
                     table.header.idx = idx;
-                    isReplace = true;
                     break;
                 }
             }
@@ -457,6 +455,6 @@ void Module_TableInsert() {
         Core_TableMetaOutput(table);
         Core_TableOutput(table, PLAYERORDER_EMPTY, PLAYERPREDICATE_EMPTY, 0, 0);
 
-        table->isFileWrite = false;
+        table->isFileEqualMemory = false;
     }
 }

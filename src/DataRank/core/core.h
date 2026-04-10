@@ -20,7 +20,7 @@ struct Table {
     float* scores;                  // 所有选手成绩（按一维数组排布，每 cnt_judge 项为一个选手的成绩）
 
     bool   isFileLoad;              // 是否将文件数据全部读取到内存
-    bool   isFileWrite;             // 是否将内存数据全部写入文件中
+    bool   isFileEqualMemory;       // 是否将内存数据全部写入文件中
 };
 
 struct Database {

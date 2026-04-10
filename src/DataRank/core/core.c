@@ -340,7 +340,7 @@ void Core_Open() {
 
         if (file) {
             struct Table t = {
-                .isFileLoad = false, .isFileWrite = true,    // 尚未完整读取，认定为已完成写入
+                .isFileLoad = false, .isFileEqualMemory = true,    // 尚未完整读取，认定为与文件的数据是一致的
                 .players = NULL, .scores = NULL
             };
             fread(&t.header, sizeof(struct TableFileHeader), 1, file);
@@ -358,7 +358,7 @@ void Core_Close() {
     // 在文件曾完整读取并尚未写入文件时
     for (int i = 0; i < database.table_cnt; i++) {
         if (database.tables[i].isFileLoad == true &&
-            database.tables[i].isFileWrite == false)
+            database.tables[i].isFileEqualMemory == false)
         {
             char path[STRING_MAXLEN] = { '\0' };
             snprintf(path, STRING_MAXLEN, "%s/%d%s",
@@ -381,7 +381,7 @@ void Core_Close() {
                     database.tables[i].header.player_cnt * database.tables[i].header.judge_cnt,
                     file);
 
-                database.tables[i].isFileWrite = true;
+                database.tables[i].isFileEqualMemory = true;
                 fclose(file);
             }
         }
