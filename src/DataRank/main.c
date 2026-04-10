@@ -17,6 +17,7 @@ struct Database database;
 int main() {
 
     // Init
+    SetConsoleOutputCP(CP_UTF8);
     SetConsoleTitleA("DataRank");
     Core_Open();
 
