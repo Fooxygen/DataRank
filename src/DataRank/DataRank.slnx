@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="DataRank.vcxproj" Id="d2ce8e64-b628-422c-bf81-2065615fb2eb" />
+</Solution>
