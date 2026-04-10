@@ -1,7 +1,7 @@
 
 //  DataRank
 //  Programming Training Exercise
-//  Tianjin University of Technology, 2026
+//  Tianjin University of Technology | 2026
 //  Update  |   2026-04-09
 
 #include "public.h"
@@ -43,9 +43,9 @@ int main() {
         else if (strcmp(cmd, "mod 4") == 0)
             callback = Module_TableOutput;
 
-        // δָ֪��
+        // 未知指令
         else {
-            OUTPUT_RED("δָ֪�");
+            OUTPUT_RED("未知指令！");
             Sleep(1000);
         }
     }

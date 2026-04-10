@@ -1,7 +1,7 @@
 
 //  DataRank
 //  Programming Training Exercise
-//  Tianjin University of Technology, 2026
+//  Tianjin University of Technology | 2026
 //  Update  |   2026-04-09
 
 #include "core.h"
@@ -28,7 +28,7 @@ int Kv_Id_Score_AscScore(const void* a, const void* b) {
     if (score < 0) return -1;
     else if (score > 0) return 1;
 
-    return x->player - y->player;                               // Score ÏàÍ¬Ê±£¬°´ Id ÉıĞò
+    return x->player - y->player;                               // Score ç›¸åŒæ—¶ï¼ŒæŒ‰ Id å‡åº
 }
 int Kv_Id_Score_DescScore(const void* a, const void* b) {
     struct Kv_Player_Score* x = (struct Kv_Player_Score*)a;
@@ -38,11 +38,11 @@ int Kv_Id_Score_DescScore(const void* a, const void* b) {
     if (score < 0) return -1;
     else if (score > 0) return 1;
 
-    return x->player - y->player;                               // Score ÏàÍ¬Ê±£¬°´ Id ÉıĞò
+    return x->player - y->player;                               // Score ç›¸åŒæ—¶ï¼ŒæŒ‰ Id å‡åº
 }
 
-// Êı¾İ¿âÀ©Èİ
-// Ìí¼Ó cnt ÕÅ±í
+// æ•°æ®åº“æ‰©å®¹
+// æ·»åŠ  cnt å¼ è¡¨
 void Core_DatabaseExpand(int cnt) {
 
     database.table_cnt += cnt;
@@ -51,8 +51,8 @@ void Core_DatabaseExpand(int cnt) {
     else exit(1);
 }
 
-// ±íÀ©Èİ
-// ½«±í´óĞ¡¸ü¸ÄÎª players * judges
+// è¡¨æ‰©å®¹
+// å°†è¡¨å¤§å°æ›´æ”¹ä¸º players * judges
 void Core_TableExpand(struct Table* table, int player_cnt, int judge_cnt) {
 
     table->header.player_cnt = player_cnt;
@@ -67,7 +67,7 @@ void Core_TableExpand(struct Table* table, int player_cnt, int judge_cnt) {
     else exit(1);
 }
 
-// ´ÓÎÄ¼şÖĞÌî³ä±íµÄÍêÕûÊı¾İ
+// ä»æ–‡ä»¶ä¸­å¡«å……è¡¨çš„å®Œæ•´æ•°æ®
 void Core_TableFileLoad(struct Table* table) {
 
     if (!table->isFileLoad) {
@@ -95,7 +95,7 @@ void Core_TableFileLoad(struct Table* table) {
     }
 }
 
-// ±í»ñÈ¡
+// è¡¨è·å–
 struct Table* Core_TableGet(int idx) {
     
     for (int i = 0; i < database.table_cnt; i++) {
@@ -105,7 +105,7 @@ struct Table* Core_TableGet(int idx) {
     return NULL;
 }
 
-// ±í´æÔÚĞÔ¼ì²é
+// è¡¨å­˜åœ¨æ€§æ£€æŸ¥
 bool Core_TableExist(int idx) {
     
     for (int i = 0; i < database.table_cnt; i++) {
@@ -114,8 +114,8 @@ bool Core_TableExist(int idx) {
     return false;
 }
 
-// Ñ¡ÊÖ´æÔÚĞÔ¼ì²é
-// -2 ÎªÊı¾İ²»ºÏ·¨£¬-1 Îª±àºÅ²»´æÔÚ£¬ÆäÓàÎª´æÔÚÊ±Êı×éÄÚÏÂ±ê
+// é€‰æ‰‹å­˜åœ¨æ€§æ£€æŸ¥
+// -2 ä¸ºæ•°æ®ä¸åˆæ³•ï¼Œ-1 ä¸ºç¼–å·ä¸å­˜åœ¨ï¼Œå…¶ä½™ä¸ºå­˜åœ¨æ—¶æ•°ç»„å†…ä¸‹æ ‡
 int  Core_TablePlayerExist(struct Table* table, int player_idx) {
 
     if (player_idx < 0) return -2;
@@ -125,21 +125,21 @@ int  Core_TablePlayerExist(struct Table* table, int player_idx) {
     return -1;
 }
 
-// ±íµÄ²ÃÅĞÈËÊıºÏ·¨ĞÔ¼ì²é
+// è¡¨çš„è£åˆ¤äººæ•°åˆæ³•æ€§æ£€æŸ¥
 bool Core_TableJudgeValid(int judge) {
     return judge > 2;
 }
 
-// ±íÔªÊı¾İÊä³ö
+// è¡¨å…ƒæ•°æ®è¾“å‡º
 void Core_TableMetaOutput(struct Table* table) {
 
     // lens
-    int len_table = 0, len_player = 0, len_judge = 0;               // ×Ö¶ÎÊä³ö³¤¶È
+    int len_table = 0, len_player = 0, len_judge = 0;               // å­—æ®µè¾“å‡ºé•¿åº¦
     len_table  = max(5, Cli_IntLength(table->header.idx));          // "Table"
     len_player = max(7, Cli_IntLength(table->header.player_cnt));   // "Players"
     len_judge  = max(6, Cli_IntLength(table->header.judge_cnt));    // "Judges"
 
-    OUTPUT_CYAN("[ ±íÔªÊı¾İ ]\n");
+    OUTPUT_CYAN("[ è¡¨å…ƒæ•°æ® ]\n");
     printf("| %-*s | %-*s | %-*s |\n",
         len_table,  "Table",
         len_player, "Players",
@@ -155,31 +155,31 @@ void Core_TableMetaOutput(struct Table* table) {
     else printf("| %-*d |\n", len_judge, table->header.judge_cnt);
 }
 
-// ±íÊä³ö
+// è¡¨è¾“å‡º
 void Core_TableOutput(struct Table* table,
     int order_mode, int predicate_mode, float predicate_x, float predicate_y)
 {
-    OUTPUT_CYAN("[ ±í ]\n");
+    OUTPUT_CYAN("[ è¡¨ ]\n");
     if (table->header.player_cnt) {
 
         int player_cnt = table->header.player_cnt;
         int judge_cnt  = table->header.judge_cnt;
 
-        // ¹¹½¨Êı¾İ·ÖÎö×Ö¶Î
-        int alys_fields_cnt = 1;                                        // ·ÖÎö×Ö¶ÎÊıÁ¿
-        int alys_cnt = alys_fields_cnt * player_cnt;                    // ËùÓĞ·ÖÎö×Ö¶ÎÊıÁ¿
+        // æ„å»ºæ•°æ®åˆ†æå­—æ®µ
+        int alys_fields_cnt = 1;                                        // åˆ†æå­—æ®µæ•°é‡
+        int alys_cnt = alys_fields_cnt * player_cnt;                    // æ‰€æœ‰åˆ†æå­—æ®µæ•°é‡
         float* alys = (float*)malloc(sizeof(float) * alys_cnt);
         memset(alys, 0, sizeof(float) * alys_cnt);
         {
             for (int i = 0; i < player_cnt; i++) {
 
                 float  xres = 0.0f;
-                int    imax = -1, imin = -1;                            // ×î´ó×îĞ¡ÖµµÄÏÂ±ê£¨¿ÉÄÜÏàÍ¬£©
-                float* scores = &table->scores[i * judge_cnt];          // Ñ¡ÊÖµÄ¶àÏî³É¼¨Êı×éÊ×µØÖ·
+                int    imax = -1, imin = -1;                            // æœ€å¤§æœ€å°å€¼çš„ä¸‹æ ‡ï¼ˆå¯èƒ½ç›¸åŒï¼‰
+                float* scores = &table->scores[i * judge_cnt];          // é€‰æ‰‹çš„å¤šé¡¹æˆç»©æ•°ç»„é¦–åœ°å€
 
-                // ½¨±íÊ±ÒÑÒªÇó Judge ÊıÁ¿ > 2
+                // å»ºè¡¨æ—¶å·²è¦æ±‚ Judge æ•°é‡ > 2
                 if (scores[0] == scores[1]) {
-                    imax = 0, imin = 1;         // ±ÜÃâ max ºÍ min ±ê¼ÇÎªÍ¬Ò»¸öÊı×Ö
+                    imax = 0, imin = 1;         // é¿å… max å’Œ min æ ‡è®°ä¸ºåŒä¸€ä¸ªæ•°å­—
                 }
 
                 for (int j = 0; j < judge_cnt; j++) {
@@ -198,7 +198,7 @@ void Core_TableOutput(struct Table* table,
             }
         }
 
-        // ¹¹½¨Êä³öË³Ğò
+        // æ„å»ºè¾“å‡ºé¡ºåº
         int seq_cnt = 0;
         struct Kv_Player_Score* seq = (struct Kv_Player_Score*)malloc(sizeof(struct Kv_Player_Score) * player_cnt);
         {
@@ -234,16 +234,17 @@ void Core_TableOutput(struct Table* table,
             }
         }
 
-        // ¼ÆËãÁĞµÄ×î´óÊä³ö³¤¶È
+        // è®¡ç®—åˆ—çš„æœ€å¤§è¾“å‡ºé•¿åº¦
         int  lens_cnt = 1 + judge_cnt + alys_fields_cnt;
         int* lens = (int*)malloc(sizeof(int) * lens_cnt);
+        memset(lens, 0, sizeof(int) * lens_cnt);
         {
             // header
             lens[0] = 7;                                            // "Players"
             for (int i = 0; i < judge_cnt; i++) {
                 lens[i + 1] = 6 + Cli_IntLength(i + 1);             // "Judge 1"
             }
-            lens[judge_cnt] = 5;                                    // "Score"
+            lens[1 + judge_cnt + 0] = 5;                            // "Score"
 
             // data
             for (int i = 0; i < seq_cnt; i++) {
@@ -265,7 +266,7 @@ void Core_TableOutput(struct Table* table,
             }
         }
 
-        // Êä³ö
+        // è¾“å‡º
         {
             // header
             {
@@ -314,24 +315,24 @@ void Core_TableOutput(struct Table* table,
         free(lens);
     }
     else {
-        OUTPUT_YELLOW("| ±íÄÚÎŞÈÎºÎÊı¾İ |\n");
+        OUTPUT_YELLOW("| è¡¨å†…æ— ä»»ä½•æ•°æ® |\n");
     }
 }
 
-// Æô¶¯
+// å¯åŠ¨
 void Core_Open() {
 
     WIN32_FIND_DATA find;
     HANDLE handle = FindFirstFile(FOLDER_TABLES_ALL, &find);
 
-    // ÎÄ¼ş¼Ğ²»´æÔÚ
+    // æ–‡ä»¶å¤¹ä¸å­˜åœ¨
     if (handle == INVALID_HANDLE_VALUE) {
         CreateDirectory(FOLDER_DATA, NULL);
         CreateDirectory(FOLDER_TABLES, NULL);
         return;
     }
 
-    // ¶ÁÈ¡
+    // è¯»å–
     do {
         char path[STRING_MAXLEN] = { '\0' };
         snprintf(path, STRING_MAXLEN, "%s/%s", FOLDER_TABLES, find.cFileName);
@@ -339,7 +340,7 @@ void Core_Open() {
 
         if (file) {
             struct Table t = {
-                .isFileLoad = false, .isFileWrite = true,    // ÉĞÎ´ÍêÕû¶ÁÈ¡£¬ÈÏ¶¨ÎªÒÑÍê³ÉĞ´Èë
+                .isFileLoad = false, .isFileWrite = true,    // å°šæœªå®Œæ•´è¯»å–ï¼Œè®¤å®šä¸ºå·²å®Œæˆå†™å…¥
                 .players = NULL, .scores = NULL
             };
             fread(&t.header, sizeof(struct TableFileHeader), 1, file);
@@ -351,10 +352,10 @@ void Core_Open() {
     } while (FindNextFile(handle, &find));
 }
 
-// ¹Ø±Õ
+// å…³é—­
 void Core_Close() {
 
-    // ÔÚÎÄ¼şÔøÍêÕû¶ÁÈ¡²¢ÉĞÎ´Ğ´ÈëÎÄ¼şÊ±
+    // åœ¨æ–‡ä»¶æ›¾å®Œæ•´è¯»å–å¹¶å°šæœªå†™å…¥æ–‡ä»¶æ—¶
     for (int i = 0; i < database.table_cnt; i++) {
         if (database.tables[i].isFileLoad == true &&
             database.tables[i].isFileWrite == false)
