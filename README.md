@@ -6,7 +6,7 @@
   <p align="center">
     Programming Trainng Exercise, Tianjin University of Technology | 2026
     <br />
-    <a href="https://github.com/Fooxygen/DataRank"><strong>? Read Document ?</strong></a>
+    <a href="https://github.com/Fooxygen/DataRank"><strong>» Read Document »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Fooxygen/DataRank/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
