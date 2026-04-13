@@ -24,7 +24,8 @@ int main() {
     // Cli
     void(*callback)() = Cli_Main;
     char cmd[STRING_MAXLEN] = "\0";
-    while (Cli_Input(cmd, callback)) {
+    bool last_execute = true;
+    while (Cli_Input(cmd, &last_execute, callback)) {
 
         // main
         if (strcmp(cmd, "main") == 0)
@@ -48,6 +49,7 @@ int main() {
         else {
             OUTPUT_RED("未知指令！");
             Sleep(1000);
+            last_execute = false;
         }
     }
 

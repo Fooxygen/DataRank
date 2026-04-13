@@ -64,6 +64,16 @@ void Cli_Clear() {
     system("cls");
 }
 
+// 清除前 n 行
+void Cli_ClearLines(int n) {
+    for (int i = 0; i < n; i++) {
+        printf("\r");        // 回到行首
+        printf("\033[2K");   // 清除整行
+        printf("\033[1A");   // 光标上移一行
+    }
+
+}
+
 // 获取输入的 [Y/N]，非 y 或 Y 则认为是 n
 bool Cli_SelectReturn() {
     char c = '\0'; scanf("%c", &c); getchar();
@@ -72,11 +82,18 @@ bool Cli_SelectReturn() {
 }
 
 // 获取命令输入
-bool Cli_Input(char cmd[STRING_MAXLEN], void(*callback)()) {
+bool Cli_Input(char cmd[STRING_MAXLEN], bool* last_execute, void(*callback)()) {
 
-    // Refresh
-    system("cls");
-    callback();
+    // 上一次执行了有效的命令
+    if (*last_execute) {
+        // Refresh
+        system("cls");
+        callback();
+    }
+    else {
+        Cli_ClearLines(2);
+        *last_execute = true;
+    }
 
     // Command
     OUTPUT_YELLOW("\n> ");
