@@ -1,6 +1,8 @@
 
 <div align="center">
 
+  <img src="logo.png" style="width: 500px">
+
   <h1 align="center">DataRank</h1>
 
   <p align="center">
