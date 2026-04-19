@@ -1,25 +1,20 @@
 
-<style>
-h1 {
-    border-bottom: none !important;
-}
-</style>
+<a id="readme-top"></a>
 
 <div align="center">
-
   <img src="logo.png" style="width: 500px">
 
-  <h1 align="center">DataRank</h1>
+  <h3 align="center">DataRank</h3>
 
   <p align="center">
     Programming Trainng Exercise, Tianjin University of Technology | 2026
     <br />
-    <a href="https://github.com/Fooxygen/DataRank"><strong>» Read Document »</strong></a>
+    <a href="https://github.com/Fooxygen/DataRank"><strong>» Explore Document »</strong></a>
     <br />
     <br />
     <a href="https://github.com/Fooxygen/DataRank/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
-    <a href="https://github.com/Fooxygen/DataRank/issues/new?labels=enhancement&template=feature-request---.md">Request Features</a>
+    <a href="https://github.com/Fooxygen/DataRank/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
   
 </div>
@@ -32,11 +27,17 @@ This project implements a competition result entry and query system, with the fo
 - Flexible configuration of the number of participants and judges.
 - Customizable sorting and filtering mode.
 
+<p align="right"><a href="#readme-top">⭱ Back to top</a></p>
+
 ## Development platform and tools
 
 - Using the C17 language standard.
 - Using Visual Studio 2026 on Windows.
 
+<p align="right"><a href="#readme-top">⭱ Back to top</a></p>
+
 ## License
 
 Copyright (c) 2026 Fooxygen. Licensed under the [MIT License](LICENSE).
+
+<p align="right"><a href="#readme-top">⭱ Back to top</a></p>
