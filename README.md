@@ -1,4 +1,10 @@
 
+<style>
+h1 {
+    border-bottom: none !important;
+}
+</style>
+
 <div align="center">
 
   <img src="logo.png" style="width: 500px">
